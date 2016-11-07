@@ -65,7 +65,7 @@ $nodes = [
 		'username'	=> 'admin',
 		'password'	=> 'pass',
 		'class'		=> 'Cassandra\Connection\Stream',//use stream instead of socket, default socket. Stream may not work in some environment
-		'connectTimeout => 10, // connection timeout, default 5,  stream transport only
+		'connectTimeout' => 10, // connection timeout, default 5,  stream transport only
 		'timeout'	=> 30, // write/recv timeout, default 30, stream transport only
 		'persistent'	=> true, // use persistent PHP connection, default false,  stream transport only  
 	],
@@ -228,13 +228,13 @@ All types are supported.
     new Cassandra\Type\Double(2.718281828459);
 
 //  Float
-    new Cassandra\Type\Float(2.718);
+    new Cassandra\Type\PhpFloat(2.718);
 
 //  Inet
     new Cassandra\Type\Inet('127.0.0.1');
 
 //  Int
-    new Cassandra\Type\Int(1);
+    new Cassandra\Type\PhpInt(1);
 
 //  CollectionList
     new Cassandra\Type\CollectionList([1, 1, 1], [Cassandra\Type\Base::INT]);

@@ -38,8 +38,8 @@ abstract class Base{
         self::BOOLEAN   => 'Cassandra\Type\Boolean',
         self::DECIMAL   => 'Cassandra\Type\Decimal',
         self::DOUBLE    => 'Cassandra\Type\Double',
-        self::FLOAT     => 'Cassandra\Type\Float',
-        self::INT       => 'Cassandra\Type\Int',
+        self::FLOAT     => 'Cassandra\Type\PhpFloat',
+        self::INT       => 'Cassandra\Type\PhpInt',
         self::UUID      => 'Cassandra\Type\Uuid',
         self::TIMEUUID  => 'Cassandra\Type\Timeuuid',
         self::INET      => 'Cassandra\Type\Inet',
@@ -101,7 +101,7 @@ abstract class Base{
      * @return mixed
      */
     public function getValue(){
-        if ($this->_value)
+        if ($this->_value === null && $this->_binary !== null)
             $this->_value = static::parse($this->_binary, $this->_definition);
         
         return $this->_value;
